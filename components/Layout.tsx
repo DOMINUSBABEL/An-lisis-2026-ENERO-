@@ -76,7 +76,7 @@ export const Layout: React.FC<LayoutProps> = ({ currentView, onNavigate, childre
           <SectionHeader title="Cap. 3: Candidatos" />
           <NavItem view={View.CANDIDATES} icon={Users} label="Perfiles Detallados" />
           <NavItem view={View.COMPARATOR} icon={Scale} label="Comparador Directo" />
-          <NavItem view={View.SOCIAL} icon={Smartphone} label="Métricas Digitales Básicas" />
+          <NavItem view={View.SOCIAL} icon={Smartphone} label="Análisis Redes Sociales" />
 
           <SectionHeader title="Cap. 4: Prospectiva" />
           <NavItem view={View.SIMULATOR} icon={PlayCircle} label="Simulador 2da Vuelta" />
@@ -124,7 +124,7 @@ export const Layout: React.FC<LayoutProps> = ({ currentView, onNavigate, childre
                         {currentView === View.POLLS && 'Intención de Voto: Primera Vuelta'}
                         {currentView === View.EVOLUTION && 'Evolución de Tendencias (6 Meses)'}
                         {currentView === View.REGIONAL_DETAIL && 'Análisis Regional Profundo'}
-                        {currentView === View.SOCIAL && 'Ecosistema Digital General'}
+                        {currentView === View.SOCIAL && 'Análisis de Redes Sociales'}
                         {currentView === View.CANDIDATES && 'Perfiles Estratégicos'}
                         {currentView === View.COMPARATOR && 'Comparativa Head-to-Head'}
                         {currentView === View.SIMULATOR && 'Escenarios de Segunda Vuelta'}
@@ -142,6 +142,7 @@ export const Layout: React.FC<LayoutProps> = ({ currentView, onNavigate, childre
                         {currentView === View.POLLS && 'Resultados consolidados de la encuesta nacional.'}
                         {currentView === View.EVOLUTION && 'Comportamiento de la intención de voto desde Junio 2025.'}
                         {currentView === View.REGIONAL_DETAIL && 'Desglose territorial de las preferencias electorales.'}
+                        {currentView === View.SOCIAL && 'Métricas de seguidores, engagement y análisis de sentimiento por candidato.'}
                         {currentView === View.DIGITAL_NARRATIVES && 'Análisis de los tópicos de conversación dominantes y su carga emocional.'}
                         {currentView === View.DIGITAL_BENCHMARK && 'Métricas de crecimiento, eficiencia por plataforma y cuota de conversación.'}
                         {currentView === View.DIGITAL_RISKS && 'Monitoreo de amenazas activas, fake news y coordinación inauténtica.'}

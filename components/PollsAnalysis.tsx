@@ -46,18 +46,23 @@ export const PollsAnalysis: React.FC = () => {
                     <thead>
                         <tr className="bg-slate-50 text-slate-600 text-xs uppercase tracking-wider">
                             <th className="p-4 font-semibold">Candidato</th>
-                            <th className="p-4 font-semibold">Partido</th>
+                            <th className="p-4 font-semibold">Partido & Slogan</th>
                             <th className="p-4 font-semibold">Ideología</th>
-                            <th className="p-4 font-semibold text-right">Intención (%)</th>
+                            <th className="p-4 font-semibold w-1/3">Intención de Voto</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 text-sm">
                         {CANDIDATES.map((c) => (
                             <tr key={c.id} className="hover:bg-slate-50/50">
-                                <td className="p-4 font-medium text-slate-900">{c.name}</td>
-                                <td className="p-4 text-slate-600">{c.party}</td>
+                                <td className="p-4 font-medium text-slate-900">
+                                    <div className="font-bold">{c.name}</div>
+                                </td>
+                                <td className="p-4 text-slate-600">
+                                    <div className="font-medium text-slate-800">{c.party}</div>
+                                    <div className="text-xs italic text-slate-500 mt-0.5">"{c.slogan}"</div>
+                                </td>
                                 <td className="p-4">
-                                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                    <span className={`px-2 py-1 rounded-full text-xs font-bold ${
                                         c.ideology.includes('Derecha') ? 'bg-blue-100 text-blue-700' :
                                         c.ideology.includes('Izquierda') ? 'bg-red-100 text-red-700' :
                                         'bg-green-100 text-green-700'
@@ -65,7 +70,21 @@ export const PollsAnalysis: React.FC = () => {
                                         {c.ideology}
                                     </span>
                                 </td>
-                                <td className="p-4 text-right font-bold text-slate-800">{c.votingIntention}%</td>
+                                <td className="p-4">
+                                    <div className="flex items-center gap-3">
+                                        <span className="font-bold text-slate-800 w-12 text-right">{c.votingIntention}%</span>
+                                        <div className="flex-1 bg-slate-100 rounded-full h-2 overflow-hidden">
+                                            <div 
+                                                className={`h-full rounded-full ${
+                                                    c.ideology.includes('Derecha') ? 'bg-blue-600' :
+                                                    c.ideology.includes('Izquierda') ? 'bg-red-600' :
+                                                    'bg-green-600'
+                                                }`}
+                                                style={{ width: `${c.votingIntention}%` }}
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
